@@ -6,13 +6,17 @@ export const GifGrid = ({ category }) => {
 
     return (
         <>
-            <h3>{category}</h3>
+            <h2 className="text-2xl font-medium mb-3 mt-3  p-2">{category}</h2>
             {isLoading && <h2>Loading...</h2>}
-            <div className="card-grid">
-                {images.map((image) => (
-                    <GifItem key={image.id} {...image} />
-                ))}
+            <div className="flex flex-wrap">
+                {
+                    images.map((image) => (
+                        <GifItem key={image.id} {...image} />
+                    ))
+                }
             </div>
+
+
         </>
     );
 };
