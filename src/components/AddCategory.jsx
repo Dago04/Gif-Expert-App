@@ -6,9 +6,10 @@ export const AddCategory = ({ onAddCategory }) => {
         setInputValue(e.target.value);
     };
     const onSubmit = (e) => {
-        e.preventDefault();
-        onAddCategory(inputValue);
-
+        e.preventDefault(); // Evita que se recargue la página 
+        if (inputValue.trim().length <= 1) return; // Evita que se agregue un valor vacío
+        onAddCategory(inputValue); // Llama a la función onAddCategory de GifExpertApp
+        setInputValue(""); // Limpia el input
     };
 
     return (
