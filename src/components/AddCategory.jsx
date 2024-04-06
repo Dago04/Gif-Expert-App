@@ -14,13 +14,14 @@ export const AddCategory = ({ onAddCategory }) => {
     };
 
     return (
-        <form onSubmit={onSubmit}>
-            <input
+        <form onSubmit={onSubmit} className=" flex w-50 items-start">
+            <input className="outline-none bg-gray-100 rounded-lg p-2 w-full px-5"
                 type="text"
-                placeholder="Search gift"
+                placeholder="Search gif"
                 value={inputValue}
                 onChange={onChangeInput}
             />
         </form>
+
     );
 };
