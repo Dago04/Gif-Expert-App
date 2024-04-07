@@ -2,11 +2,15 @@ import { useState } from "react";
 import { AddCategory, GifGrid, Footer } from "./components";
 
 export const GifExpertApp = () => {
-    const [categories, setCategories] = useState(['Shaquill']);
+    const [categories, setCategories] = useState(['Dragon ball']);
     const onAddCategory = (category) => {
         if (categories.includes(category)) return; // Evita duplicados
         setCategories([category, ...categories]);
     };
+
+    const onDeleteCategory = (category) => {
+        setCategories((categories) => categories.filter((cat) => cat !== category));
+    }
     return (
         <main className="flex flex-col justify-between min-h-screen">
             <section className="text-gray-600">
@@ -26,7 +30,7 @@ export const GifExpertApp = () => {
 
                     <div className="flex flex-col -m-4 mt-12 px-5">
                         {categories.map((category) => {
-                            return <GifGrid key={category} category={category} />;
+                            return <GifGrid key={category} category={category} onDeleteCategory={onDeleteCategory} />;
                         })}
                     </div>
                 </div>
